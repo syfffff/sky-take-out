@@ -9,6 +9,12 @@
         </foreach>
     </select>
 
+    <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
+        insert into setmeal_dish (setmeal_id, dish_id, name, price, copies) VALUES
+        <foreach collection="setmealDishes" separator="," item="item">
+            (#{item.setmealId},#{item.dishId},#{item.name},#{item.price},#{item.copies})
+        </foreach>
+    </insert>
 
 
 </mapper>

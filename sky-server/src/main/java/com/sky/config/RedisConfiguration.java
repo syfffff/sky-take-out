@@ -20,9 +20,9 @@ public class RedisConfiguration {
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
 
-        // Value 和 HashValue 采用 JSON 序列化
-        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+//        // Value 和 HashValue 采用 JSON 序列化
+//        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+//        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
         return redisTemplate;
     }
 }

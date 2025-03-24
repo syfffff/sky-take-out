@@ -27,4 +27,8 @@ public class ShopController {
         log.info("获取店铺状态:{}" , status == 1 ? "开启" : "关闭");
         return Result.success(status);
     }
+
+
+
+
 }

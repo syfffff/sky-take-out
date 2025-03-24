@@ -62,6 +62,30 @@
         </where>
         order by d.create_time desc
     </select>
+    <select id="list" resultType="com.sky.entity.Dish">
+        select * from dish
+        <where>
+            <if test="name!=null"> and name like concat('%',#{name},'%') </if>
+            <if test="categoryId!=null"> and category_id=#{categoryId} </if>
+            <if test="status!=null"> and status=#{status} </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <select id="getBySetmealId" resultType="com.sky.entity.Dish">
+        select d.*
+        from dish d,
+             setmeal_dish sd
+        where d.id = sd.dish_id
+          and sd.setmeal_id = #{id}
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer">
+        select count(id) from dish
+        <where>
+            <if test="status != null"> and status = #{status} </if>
+            <if test="categoryId != null"> and category_id = #{categoryId} </if>
+        </where>
+    </select>
 
 
 </mapper>
